@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "journify": {
+      "type": "http",
+      "url": "https://mcp.journify.io/mcp"
+    }
+  }
+}
