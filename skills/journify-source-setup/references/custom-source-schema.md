@@ -1,15 +1,19 @@
 # Build a custom source schema
 
-Use this guide when the customer chooses `custom` schema.
+Use this guide when implementing any source schema and when defining a custom schema. For an existing or template-based schema, preserve its event names, properties, types, and required fields. Apply the schema shape and trigger rules below without redesigning the schema. Record events or required values missing from the code in the final response. Do not write report files or copy the source schema into the application codebase.
 
-Before drafting, ask the customer what kind of business or product this is, such as a ride-hailing app, game, ecommerce store, SaaS product, or marketplace. Also ask for the main user journey and business outcome. Do not infer these answers from the code alone.
+## Define a custom schema
+
+Follow these authoring steps when the customer chooses a `custom` schema or no industry template fits a new source. Never update a source schema unless you have retrieved its saved schema and verified that it lists no events.
+
+Before drafting, establish the product type, main user journey, and intended business outcome from the request and repository. Ask the customer for any missing or ambiguous context, especially business outcomes that code alone cannot establish.
 
 1. Start with the conversions, reports, and audiences the customer needs.
 2. Inspect the code for the success point that proves each event happened.
 3. Keep only events with a real trigger and a known use.
 4. Put persistent user facts in `user`.
 5. Mark a field `required` only when every call must supply it. Use `recommended` for useful fields.
-6. Review the taxonomy and non-obvious destination mappings with the customer before writing it.
+6. Resolve ambiguous event meanings with the customer before saving the schema. Keep this work scoped to the source taxonomy and user traits.
 
 Use the workspace's naming convention. Otherwise, use stable snake_case names that describe a completed action, such as `trial_started` or `purchase`. Use a destination's standard event name when the meaning matches.
 

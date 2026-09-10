@@ -1,7 +1,7 @@
 {
   "name": "journify-mcp-plugin",
   "version": "0.1.0",
-  "description": "Journify workspace setup, operational reports, and alert triage with the Journify MCP server.",
+  "description": "Journify source instrumentation, operational reports, and alert triage with the Journify MCP server.",
   "author": {
     "name": "Journify",
     "url": "https://journify.io"

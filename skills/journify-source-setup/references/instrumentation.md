@@ -1,7 +1,7 @@
 # Implementing the source schema
 
 Use this guide to implement Journify SDK calls in the client codebase.
-The goal is to send events and user traits that match the source schema exactly, without inventing new events or properties.
+The goal is to send events and user traits that match the source schema.
 
 ## Official Journify SDK documentation
 
@@ -18,18 +18,18 @@ Before editing instrumentation:
 2. Pull the source writekey from the MCP server.
 3. Search for an installed Journify SDK, client initialization, existing `identify`, `track`, `page` or `screen` calls, and consent handling.
 4. Use the API exposed by the installed SDK version.
-5. If the SDK is absent or its API cannot be established from local code and official Journify documentation, ask before adding a dependency.
+5. If the SDK is absent, add the official runtime-appropriate SDK as part of source setup. If its API cannot be established from local code and official documentation, record the blocker instead of guessing.
 6. Keep credentials in the project's existing environment or secret mechanism. Add an example variable only when the repository already maintains an example environment file.
 
 ## Map schema to code
 
 - Treat the source schema as the contract. Preserve event names, property names, types, and required fields exactly.
 - Map each event to the business action that proves it occurred.
-- When possible, avoid emitting a completed business event from a page load or button click.
+- Emit completed business events at authoritative success points, not earlier page loads or button clicks.
 - Populate required properties from authoritative domain values.
 - Do not use placeholders, empty strings, guessed constants, or fabricated IDs to satisfy the schema.
 - Send user traits through the SDK's identity call when the identity becomes known or changes.
-- Skip schema events that don't exist in the codebase.
+- Record schema events whose business actions don't exist in the codebase as missing in the final response. Do not write report files or copy the source schema into the application codebase. Record unavailable required data as a blocker.
 - Do not invent any new event or property.
 
 ## Verification
