@@ -1,7 +1,7 @@
 {
   "name": "journify-mcp-plugin",
   "version": "0.1.0",
-  "description": "Journify workspace setup, operational reports, and alert triage with the Journify MCP server.",
+  "description": "Journify source instrumentation, operational reports, and alert triage with the Journify MCP server.",
   "author": {
     "name": "Journify",
     "url": "https://journify.io"
@@ -18,8 +18,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Journify",
-    "shortDescription": "Set up workspaces, review reports, and triage alerts",
-    "longDescription": "Journify workspace setup, operational reports, and alert triage with the Journify MCP server.",
+    "shortDescription": "Set up source tracking, review reports, and triage alerts",
+    "longDescription": "Journify source instrumentation, operational reports, and alert triage with the Journify MCP server.",
     "developerName": "Journify",
     "category": "Productivity",
     "capabilities": [
@@ -30,7 +30,7 @@
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/logo.png",
     "defaultPrompt": [
-      "Set up my Journify workspace and application tracking",
+      "Implement my Journify source schema in this application",
       "Create an operational report for my Journify workspace",
       "Review and prioritize my Journify workspace alerts"
     ]

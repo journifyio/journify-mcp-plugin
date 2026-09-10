@@ -1,6 +1,6 @@
 # Journify plugin
 
-Set up Journify workspaces, generate reports, and review alerts in Claude Code,
+Implement Journify source tracking, generate reports, and review alerts in Claude Code,
 Cursor, ChatGPT, or Codex. The plugin bundles three skills and connects to the
 hosted Journify MCP server. No build step is required.
 
@@ -8,11 +8,11 @@ hosted Journify MCP server. No build step is required.
 
 | Skill | Purpose |
 | --- | --- |
-| `journify-setup` | Configure sources, destinations, and syncs. Add the source schema to your application. |
+| `journify-source-setup` | Create a source when needed, get its writekey and schema, implement events available in the application, and report completed and missing work. |
 | `journify-report` | Summarize sources, active syncs, event volume, and alerts. |
 | `journify-alerts` | Prioritize alerts and find conversion-event fields with low coverage. |
 
-The setup skill needs permission to read and edit your application codebase.
+The source setup skill needs permission to read and edit your application codebase.
 
 ## MCP connection
 
@@ -57,7 +57,8 @@ connection ID to a local `.app.json` through the plugin-creator flow.
 
 ## Example requests
 
-- Set up my Journify workspace and add tracking to this application.
+- Implement my Journify source schema in this application and report what is still missing.
+- Set up Journify tracking from this codebase. I have not created a source yet.
 - Create an operational report for my Journify workspace.
 - Review my workspace alerts and prioritize what to fix.
 
@@ -80,7 +81,8 @@ The three manifests share `skills/` and `.mcp.json`. Maintain the skills in
 directory into `skills/`, including its references. The plugin uses these bundled
 copies and does not fetch updates at runtime.
 
-The bundled files match upstream commit
+The bundled files were originally copied from upstream commit
 [`60c83d9`](https://github.com/journifyio/skills/commit/60c83d9517b73f682b531e3d9ff7a1b976a7072c).
+The source setup skill has since been renamed and scoped to source instrumentation locally.
 For each release, validate the package, update this commit reference, and bump
 `version` in all three manifests together.
