@@ -32,3 +32,6 @@ credentials. Live connectivity and authentication have not yet been verified.
 - Set up Journify tracking from this codebase. I have not created a source yet.
 - Create an operational report for my Journify workspace.
 - Review my workspace alerts and prioritize what to fix.
+
+## Privacy Policy
+https://www.journify.io/privacy-policy
